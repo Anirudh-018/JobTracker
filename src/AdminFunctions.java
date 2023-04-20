@@ -53,10 +53,8 @@ class AdminFunctions {
         }
     }
     void updateClient(int id,String updatedClient) throws Exception{
-        String updateNameQuery="update jobs set clientName='"+updatedClient+"' where jobId="+id;
-        connection();
-        Statement stmt=dbConnection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
-        int result=stmt.executeUpdate(updateNameQuery);
+        String field="clientName";
+        int result=adminDao.updater(id, field, updatedClient);
         if(result==1){
             System.out.println("succesfully updated");
         }
@@ -65,10 +63,8 @@ class AdminFunctions {
         }
     }
     void updateCommentsByAdmin(int id,String comment) throws Exception{
-        String updateNameQuery="update jobs set commentsByAdmin='"+comment+"' where jobId="+id;
-        connection();
-        Statement stmt=dbConnection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
-        int result=stmt.executeUpdate(updateNameQuery);
+        String field="commentsByAdmin";
+        int result=adminDao.updater(id, field, comment);
         if(result==1){
             System.out.println("succesfully updated");
         }

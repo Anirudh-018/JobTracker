@@ -7,7 +7,7 @@ public class JobTracker {
         int choice=1;
         while(choice>0){
             System.out.println("welcome to job tracker");
-            System.out.println("enter 1 for admin\n2 for team lead\n3 for exit");
+            System.out.println("enter 1 for admin\n2 for team lead\n0 for exit");
             choice=s.nextInt();
             switch(choice){
                 case 1:
@@ -18,6 +18,7 @@ public class JobTracker {
                     break;
                 case 0:
                     System.exit(1);
+                    break;
             }
         }
     }

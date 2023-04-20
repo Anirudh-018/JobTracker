@@ -69,7 +69,7 @@ public class App {
                     System.out.println("enter job id");
                     int id = s.nextInt();
                     s.nextLine();
-                    System.out.println("enter comments");
+                    System.out.println("enter current project status");
                     String status = s.nextLine();
                     teamLead.updateStatus(id, status);
                     break;
@@ -79,7 +79,7 @@ public class App {
                     System.out.println("enter job id");
                     id = s.nextInt();
                     s.nextLine();
-                    System.out.println("enter comments");
+                    System.out.println("enter current cam user");
                     String newCamUser = s.nextLine();
                     teamLead.updateStatus(id, newCamUser);
                 case 0:
@@ -130,7 +130,7 @@ public class App {
             int choice = 1;
             while (choice > 0) {
                 System.out.println(
-                        "1 for view all jobs \n2for update details\n3 for approve a job");
+                        "1 for view all jobs \n2for update details\n0 for logging out");
                 choice = s.nextInt();
                 switch (choice) {
                     case 1:
