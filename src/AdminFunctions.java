@@ -1,13 +1,6 @@
 import java.sql.*;
 class AdminFunctions {
-    private Connection dbConnection = null;
     private AdminDao adminDao=new AdminDao();
-    private 
-    void connection() throws Exception {
-        DbConnect con = new DbConnect();
-        dbConnection = con.getConnection();
-    }
-
     // check for login
     boolean authorised(String username,String password) throws Exception{
         ResultSet result=adminDao.authSelector(username);
