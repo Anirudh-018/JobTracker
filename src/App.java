@@ -100,8 +100,9 @@ public class App {
             int choice = 1;
             while (choice > 0) {
                 System.out.println(
-                        "1 for view all jobs \n2for update details\n3 for approve a job\n4 for delete a job\n0 to exit the menu");
+                        "1 for view all jobs \n2for update details\n3 for approve a job\n4 for delete a job\n5 to add a new team lead\n6 to add a new job\n0 to exit the menu");
                 choice = s.nextInt();
+                s.nextLine();
                 switch (choice) {
                     case 1:
                         admin.viewAllJobs();
@@ -113,6 +114,17 @@ public class App {
                     case 2:
                         updateLogicAdmin();
                         break;
+                    // case 3:
+                    // System.out.println("approve or delete job");
+                    // admin.viewAllJobs();
+                    // System.out.println("enter job id");
+                    // int id=s.nextInt();
+                    case 5:
+                    System.out.println("add new team lead");
+                    System.out.println("enter username");
+                    String teamLeadUsername=s.nextLine();
+                    admin.addTeamLead(teamLeadUsername);
+                    break;
                 }
             }
 
