@@ -7,19 +7,26 @@ class TeamLeadFunctions{
         dbConnection = con.getConnection();
     }
     
-    boolean authorized(String username,String password) throws Exception{
+    TeamLead authorized(String username,String password) throws Exception{
         ResultSet result=teamLeadDao.authSelector(username);
         if(!result.next()){
             System.out.println("no data found");
-            return false;
+            return new TeamLead(0,null,null,null,null,null);
         }
         else{
             if(result.getString("password").equals(password)){
-                return true;
+                TeamLead lead=new TeamLead(
+                    result.getInt("team_lead_id"), 
+                    result.getString("username"), 
+                    result.getString("password"), 
+                    result.getString("contact"), 
+                    result.getString("task_ids"),
+                    result.getString("department"));
+                return lead;
             }
             else{
                 System.out.println("wrong username or password");
-                return false;
+                return new TeamLead(0,null,null,null,null,null);
             }
         }
     }

@@ -137,7 +137,8 @@ public class App {
         String username = s.nextLine();
         System.out.println("enter password");
         String password = s.nextLine();
-        if (teamLead.authorized(username, password)) {
+        TeamLead lead=teamLead.authorized(username, password);
+        if (lead.team_lead_id!=0) {
             System.out.println("welcome");
             int choice = 1;
             while (choice > 0) {
@@ -146,14 +147,14 @@ public class App {
                 choice = s.nextInt();
                 switch (choice) {
                     case 1:
-                        teamLead.viewJob(username);
+                        teamLead.viewJob(lead.getUserName());
                         break;
                     case 0:
                         System.out.println("thanks for using");
                         System.out.println("logging out team lead");
                         return;
                     case 2:
-                        updateLogicTeamLead(username);
+                        updateLogicTeamLead(lead.getUserName());
                         break;
                 }
             }
