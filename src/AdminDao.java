@@ -73,11 +73,10 @@ public class AdminDao {
 
     int adderTeamLead(String username) throws Exception {
         Random rand = new Random();
-   
         // Generate random integers in range 0 to 999
         int rand_int1 = rand.nextInt(10,15);
         String password=generateRandomPassword(rand_int1);
-        String addLeadQuery = "insert into team_leads values('"+username+"','"+password+"')";
+        String addLeadQuery = "insert into team_leads values(\'"+username+"\',\'"+password+"\',\'"+username+"@gmail.com"+"\'"+",'','',"+(++TeamLead.leads_count)+")";
         System.out.println(addLeadQuery);
         connection();
         Statement stmt = dbConnection.createStatement();

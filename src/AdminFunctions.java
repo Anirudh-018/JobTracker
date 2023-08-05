@@ -24,7 +24,7 @@ class AdminFunctions {
         if (!jobs.next()) {
             System.out.println("no jobs registered");
         } else {
-            System.out.println("jobId jobName Head StartedAt EstimatedTime Status commentsByAdmin clinetName");
+            System.out.println("jobId jobName Head StartedAt EstimatedTime Status commentsByAdmin clientName");
             jobs.beforeFirst();
             while (jobs.next()) {
                 String output = jobs.getString("jobId") + " " + jobs.getString("jobName") + " " + jobs.getString("head")
